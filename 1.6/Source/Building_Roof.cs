@@ -43,66 +43,25 @@ namespace RimRoof
         public void UpdateShape()
         {
             bool n = IsS(IntVec3.North), e = IsS(IntVec3.East), s = IsS(IntVec3.South), w = IsS(IntVec3.West);
-            bool hasSupport = HasWallSupport();
             if (n && e && s && w)
             {
-                if (!IsS(new IntVec3(1, 0, 1)))
-                {
-                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.North : Rot4.North;
-                }
-                else if (!IsS(new IntVec3(1, 0, -1)))
-                {
-                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.East : Rot4.North;
-                }
-                else if (!IsS(new IntVec3(-1, 0, -1)))
-                {
-                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.South : Rot4.North;
-                }
-                else if (!IsS(new IntVec3(-1, 0, 1)))
-                {
-                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.West : Rot4.North;
-                }
-                else
-                {
-                    curShape = RoofShape.Center;
-                    Rotation = Rot4.North;
-                }
+                if (!IsS(new IntVec3(1, 0, 1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.North; }
+                else if (!IsS(new IntVec3(1, 0, -1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.East; }
+                else if (!IsS(new IntVec3(-1, 0, -1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.South; }
+                else if (!IsS(new IntVec3(-1, 0, 1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.West; }
+                else curShape = RoofShape.Center;
             }
             else
             {
-                if (!n && !w)
-                {
-                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.North : Rot4.North;
-                }
-                else if (!n && !e)
-                {
-                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.East : Rot4.North;
-                }
-                else if (!s && !e)
-                {
-                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.South : Rot4.North;
-                }
-                else if (!s && !w)
-                {
-                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
-                    Rotation = hasSupport ? Rot4.West : Rot4.North;
-                }
+                if (!n && !w) { curShape = RoofShape.OuterCorner; Rotation = Rot4.North; }
+                else if (!n && !e) { curShape = RoofShape.OuterCorner; Rotation = Rot4.East; }
+                else if (!s && !e) { curShape = RoofShape.OuterCorner; Rotation = Rot4.South; }
+                else if (!s && !w) { curShape = RoofShape.OuterCorner; Rotation = Rot4.West; }
                 else if (!n) { curShape = RoofShape.Side; Rotation = Rot4.North; }
                 else if (!e) { curShape = RoofShape.Side; Rotation = Rot4.East; }
                 else if (!s) { curShape = RoofShape.Side; Rotation = Rot4.South; }
                 else if (!w) { curShape = RoofShape.Side; Rotation = Rot4.West; }
-                else
-                {
-                    curShape = RoofShape.Center;
-                    Rotation = Rot4.North;
-                }
+                else curShape = RoofShape.Center;
             }
             Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
         }
@@ -115,47 +74,42 @@ namespace RimRoof
             return frame != null && frame.def.entityDefToBuild == def;
         }
 
-        private bool HasWallSupport()
+        public override string GetInspectString()
         {
-            return Position.GetEdifice(Map)?.def.IsWall ?? false;
+            return $"Shape: {curShape}\nRotation: {Rotation.ToStringHuman()}";
         }
-    
-            public override string GetInspectString()
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (var g in base.GetGizmos())
             {
-                return $"Shape: {curShape}\nRotation: {Rotation.ToStringHuman()}";
+                yield return g;
             }
-    
-            public override IEnumerable<Gizmo> GetGizmos()
+
+            if (DebugSettings.ShowDevGizmos)
             {
-                foreach (var g in base.GetGizmos())
+                yield return new Command_Action
                 {
-                    yield return g;
-                }
-    
-                if (DebugSettings.ShowDevGizmos)
+                    defaultLabel = "Set Shape: " + curShape,
+                    action = () =>
+                    {
+                        curShape = (RoofShape)(((int)curShape + 1) % 4);
+                        Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
+                    }
+                };
+
+                yield return new Command_Action
                 {
-                    yield return new Command_Action
+                    defaultLabel = "Set Rotation: " + Rotation,
+                    action = () =>
                     {
-                        defaultLabel = "Set Shape: " + curShape,
-                        action = () =>
-                        {
-                            curShape = (RoofShape)(((int)curShape + 1) % 4);
-                            Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
-                        }
-                    };
-    
-                    yield return new Command_Action
-                    {
-                        defaultLabel = "Set Rotation: " + Rotation,
-                        action = () =>
-                        {
-                            Rotation = new Rot4((Rotation.AsInt + 1) % 4);
-                            Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
-                        }
-                    };
-                }
+                        Rotation = new Rot4((Rotation.AsInt + 1) % 4);
+                        Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
+                    }
+                };
             }
-    
+        }
+
         public static void NotifyAdjacentRoofs(Map map, IntVec3 pos, ThingDef entityDef)
         {
             for (int i = 0; i < 8; i++)
