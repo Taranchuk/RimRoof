@@ -43,25 +43,66 @@ namespace RimRoof
         public void UpdateShape()
         {
             bool n = IsS(IntVec3.North), e = IsS(IntVec3.East), s = IsS(IntVec3.South), w = IsS(IntVec3.West);
+            bool hasSupport = HasWallSupport();
             if (n && e && s && w)
             {
-                if (!IsS(new IntVec3(1, 0, 1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.North; }
-                else if (!IsS(new IntVec3(1, 0, -1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.East; }
-                else if (!IsS(new IntVec3(-1, 0, -1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.South; }
-                else if (!IsS(new IntVec3(-1, 0, 1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.West; }
-                else curShape = RoofShape.Center;
+                if (!IsS(new IntVec3(1, 0, 1)))
+                {
+                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.North : Rot4.North;
+                }
+                else if (!IsS(new IntVec3(1, 0, -1)))
+                {
+                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.East : Rot4.North;
+                }
+                else if (!IsS(new IntVec3(-1, 0, -1)))
+                {
+                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.South : Rot4.North;
+                }
+                else if (!IsS(new IntVec3(-1, 0, 1)))
+                {
+                    curShape = hasSupport ? RoofShape.InnerCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.West : Rot4.North;
+                }
+                else
+                {
+                    curShape = RoofShape.Center;
+                    Rotation = Rot4.North;
+                }
             }
             else
             {
-                if (!n && !w) { curShape = RoofShape.OuterCorner; Rotation = Rot4.North; }
-                else if (!n && !e) { curShape = RoofShape.OuterCorner; Rotation = Rot4.East; }
-                else if (!s && !e) { curShape = RoofShape.OuterCorner; Rotation = Rot4.South; }
-                else if (!s && !w) { curShape = RoofShape.OuterCorner; Rotation = Rot4.West; }
+                if (!n && !w)
+                {
+                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.North : Rot4.North;
+                }
+                else if (!n && !e)
+                {
+                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.East : Rot4.North;
+                }
+                else if (!s && !e)
+                {
+                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.South : Rot4.North;
+                }
+                else if (!s && !w)
+                {
+                    curShape = hasSupport ? RoofShape.OuterCorner : RoofShape.Center;
+                    Rotation = hasSupport ? Rot4.West : Rot4.North;
+                }
                 else if (!n) { curShape = RoofShape.Side; Rotation = Rot4.North; }
                 else if (!e) { curShape = RoofShape.Side; Rotation = Rot4.East; }
                 else if (!s) { curShape = RoofShape.Side; Rotation = Rot4.South; }
                 else if (!w) { curShape = RoofShape.Side; Rotation = Rot4.West; }
-                else curShape = RoofShape.Center;
+                else
+                {
+                    curShape = RoofShape.Center;
+                    Rotation = Rot4.North;
+                }
             }
             Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
         }
@@ -72,6 +113,11 @@ namespace RimRoof
             if (Map.thingGrid.ThingAt(c, def) != null) return true;
             var frame = Map.thingGrid.ThingAt<Frame>(c);
             return frame != null && frame.def.entityDefToBuild == def;
+        }
+
+        private bool HasWallSupport()
+        {
+            return Position.GetEdifice(Map)?.def.IsWall ?? false;
         }
     
             public override string GetInspectString()
