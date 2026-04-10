@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef ParentName="MakeStoneBlocksBase">
+    <defName>RimRoof_CutStoneRoofTiles</defName>
+    <label>cut stone roof tiles</label>
+    <description>Cut stone into roof tiles.</description>
+    <jobString>cutting stone roof tiles</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Stone</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Stone</li>
+      </categories>
+    </fixedIngredientFilter>
+    <products>
+      <RimRoof_StoneRoofTile>3</RimRoof_StoneRoofTile>
+    </products>
+    <researchPrerequisite>Stonecutting</researchPrerequisite>
+  </RecipeDef>
+
+</Defs>

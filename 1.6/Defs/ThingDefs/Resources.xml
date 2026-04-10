@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_StoneRoofTile</defName>
+    <label>stone roof tile</label>
+    <description>A tile of cut stone used to construct durable roofs.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Stone_Roof_Tile</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <MarketValue>10</MarketValue>
+      <Mass>0.5</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+
+</Defs>

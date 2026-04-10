@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/DesignationCategoryDef[defName="Zone"]/specialDesignatorClasses/li[text()="Designator_AreaBuildRoof" or text()="Designator_AreaIgnoreRoof"]</xpath>
+  </Operation>
+</Patch>

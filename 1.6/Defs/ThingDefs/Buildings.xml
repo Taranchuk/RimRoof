@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase" Name="RimRoof_Base" Abstract="True">
+    <thingClass>RimRoof.Building_Roof</thingClass>
+    <graphicData>
+      <graphicClass>RimRoof.Graphic_Roof</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <drawStyleCategory>FilledRectangle</drawStyleCategory>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <building>
+      <isEdifice>false</isEdifice>
+      <canPlaceOverWall>true</canPlaceOverWall>
+    </building>
+    <designationCategory>RimRoofs</designationCategory>
+    <tickerType>Rare</tickerType>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>RimRoof_LogFrame</defName>
+    <label>log frame</label>
+    <description>Provides structural support for roofs. Required for stone roofs to prevent collapse.</description>
+    <thingClass>RimRoof.Building_LogFrame</thingClass>
+    <graphicData>
+      <texPath>Log_Frame</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <uiIconPath>Log_Frame</uiIconPath>
+    <drawStyleCategory>FilledRectangle</drawStyleCategory>
+    <altitudeLayer>MoteOverheadLow</altitudeLayer>
+    <statBases>
+      <WorkToBuild>300</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+    </statBases>
+    <costList>
+      <WoodLog>1</WoodLog>
+    </costList>
+    <constructEffect>ConstructWood</constructEffect>
+    <repairEffect>ConstructWood</repairEffect>
+    <building>
+      <isEdifice>false</isEdifice>
+      <canPlaceOverWall>true</canPlaceOverWall>
+    </building>
+    <designationCategory>RimRoofs</designationCategory>
+  </ThingDef>
+
+  <ThingDef ParentName="RimRoof_Base">
+    <defName>RimRoof_HaygrassRoof</defName>
+    <label>haygrass roof</label>
+    <description>Fast to build but fragile and flammable.</description>
+    <uiIconPath>Haygrass_Roof</uiIconPath>
+    <statBases>
+      <WorkToBuild>300</WorkToBuild>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Flammability>2</Flammability>
+    </statBases>
+    <costList>
+      <Hay>3</Hay>
+    </costList>
+    <constructEffect>ConstructWood</constructEffect>
+    <repairEffect>ConstructWood</repairEffect>
+    <graphicData>
+      <texPath>Haygrass_Roof</texPath>
+      <graphicClass>RimRoof.Graphic_Roof</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="RimRoof.CompProperties_RoofCollapse">
+        <totalCollapseChancePerDay>0.05</totalCollapseChancePerDay>
+        <singleCollapseChancePerDay>0.1</singleCollapseChancePerDay>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RimRoof_Base">
+    <defName>RimRoof_WoodRoof</defName>
+    <label>wood roof</label>
+    <description>Sturdy wooden roof. More durable than haygrass but still flammable.</description>
+    <uiIconPath>Wood_Roof</uiIconPath>
+    <statBases>
+      <WorkToBuild>480</WorkToBuild>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Flammability>1</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>3</WoodLog>
+    </costList>
+    <constructEffect>ConstructWood</constructEffect>
+    <repairEffect>ConstructWood</repairEffect>
+    <graphicData>
+      <texPath>Wood_Roof</texPath>
+      <graphicClass>RimRoof.Graphic_Roof</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <comps>
+      <li Class="RimRoof.CompProperties_RoofCollapse">
+        <totalCollapseChancePerDay>0.1</totalCollapseChancePerDay>
+        <singleCollapseChancePerDay>0.15</singleCollapseChancePerDay>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="RimRoof_Base">
+    <defName>RimRoof_StoneRoof</defName>
+    <label>stone roof</label>
+    <description>Durable stone roof. Requires log frame support to prevent collapse.</description>
+    <uiIconPath>Stone_Roof</uiIconPath>
+    <tickerType>Never</tickerType>
+    <statBases>
+      <WorkToBuild>600</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList>
+      <RimRoof_StoneRoofTile>3</RimRoof_StoneRoofTile>
+    </costList>
+    <constructEffect>ConstructDirt</constructEffect>
+    <repairEffect>ConstructDirt</repairEffect>
+    <graphicData>
+      <texPath>Stone_Roof</texPath>
+      <graphicClass>RimRoof.Graphic_Roof</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <placeWorkers>
+      <li>RimRoof.PlaceWorker_RequiresLogFrame</li>
+    </placeWorkers>
+  </ThingDef>
+
+</Defs>

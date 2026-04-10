@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <RimRoof_ToggleLog>Toggle log frames visibility</RimRoof_ToggleLog>
+  <RimRoof_ToggleRoof>Toggle inner roofs visibility</RimRoof_ToggleRoof>
+  <RimRoof_NeedLogFrame>Requires a log frame for support</RimRoof_NeedLogFrame>
+</LanguageData>
