@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RecipeDef ParentName="MakeStoneBlocksBase">
+  <RecipeDef>
     <defName>RimRoof_CutStoneRoofTiles</defName>
     <label>cut stone roof tiles</label>
     <description>Cut stone into roof tiles.</description>
     <jobString>cutting stone roof tiles</jobString>
+    <workAmount>900</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
     <ingredients>
       <li>
         <filter>
           <categories>
-            <li>Stone</li>
+            <li>StoneChunks</li>
           </categories>
         </filter>
         <count>1</count>
@@ -18,13 +22,311 @@
     </ingredients>
     <fixedIngredientFilter>
       <categories>
-        <li>Stone</li>
+        <li>StoneChunks</li>
       </categories>
     </fixedIngredientFilter>
     <products>
       <RimRoof_StoneRoofTile>3</RimRoof_StoneRoofTile>
     </products>
+    <recipeUsers>
+      <li>TableStonecutter</li>
+    </recipeUsers>
     <researchPrerequisite>Stonecutting</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_CraftTwine1</defName>
+    <label>craft 1 twine</label>
+    <description>Braid haygrass into twine.</description>
+    <jobString>Braiding twine.</jobString>
+    <workAmount>120</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hay</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_Twine>1</RimRoof_Twine>
+    </products>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_BraidingSpot</li>
+    </recipeUsers>
+    <researchPrerequisite>RimRoof_LogFrame</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_CraftTwine10</defName>
+    <label>craft 10 twine</label>
+    <description>Braid haygrass into twine.</description>
+    <jobString>Braiding twine.</jobString>
+    <workAmount>1200</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hay</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_Twine>10</RimRoof_Twine>
+    </products>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_BraidingSpot</li>
+    </recipeUsers>
+    <researchPrerequisite>RimRoof_LogFrame</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_CraftTwine100</defName>
+    <label>craft 100 twine</label>
+    <description>Braid haygrass into twine.</description>
+    <jobString>Braiding twine.</jobString>
+    <workAmount>12000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hay</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_Twine>100</RimRoof_Twine>
+    </products>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_BraidingSpot</li>
+    </recipeUsers>
+    <researchPrerequisite>RimRoof_LogFrame</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_CraftNails</defName>
+    <label>craft 6 nails</label>
+    <description>Forge nails from steel.</description>
+    <jobString>Forging nails.</jobString>
+    <workAmount>120</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>5</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_Nails>6</RimRoof_Nails>
+    </products>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Smith</effectWorking>
+    <recipeUsers>
+      <li>FueledSmithy</li>
+      <li>ElectricSmithy</li>
+    </recipeUsers>
+    <researchPrerequisite>Smithing</researchPrerequisite>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_CraftTimber10</defName>
+    <label>craft 10 timber</label>
+    <description>Produce timber planks at a trestle.</description>
+    <jobString>Sawing timber.</jobString>
+    <workAmount>1200</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_Timber>10</RimRoof_Timber>
+    </products>
+    <workSpeedStat>ConstructionSpeed</workSpeedStat>
+    <effectWorking>ConstructWood</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_Trestle</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_CraftTimber50</defName>
+    <label>craft 50 timber</label>
+    <description>Produce timber planks at a trestle.</description>
+    <jobString>Sawing timber.</jobString>
+    <workAmount>6000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </filter>
+        <count>50</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_Timber>50</RimRoof_Timber>
+    </products>
+    <workSpeedStat>ConstructionSpeed</workSpeedStat>
+    <effectWorking>ConstructWood</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_Trestle</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_CraftTimber100</defName>
+    <label>craft 100 timber</label>
+    <description>Produce timber planks at a trestle.</description>
+    <jobString>Sawing timber.</jobString>
+    <workAmount>12000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </filter>
+        <count>100</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_Timber>100</RimRoof_Timber>
+    </products>
+    <workSpeedStat>ConstructionSpeed</workSpeedStat>
+    <effectWorking>ConstructWood</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_Trestle</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_MakeClayMortar</defName>
+    <label>make 3 clay mortar</label>
+    <description>Mix clay, sand, and haygrass to form mortar.</description>
+    <jobString>Mixing clay mortar.</jobString>
+    <workAmount>1800</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RimRoof_Clay</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RimRoof_Sand</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Hay</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_ClayMortar>3</RimRoof_ClayMortar>
+    </products>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <recipeUsers>
+      <li>CraftingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_MakeLimestoneMortar</defName>
+    <label>make limestone mortar</label>
+    <description>Mix lime and sand to create strong mortar.</description>
+    <jobString>Mixing limestone mortar.</jobString>
+    <workAmount>2400</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RimRoof_Lime</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RimRoof_Sand</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <RimRoof_LimestoneMortar>1</RimRoof_LimestoneMortar>
+    </products>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <recipeUsers>
+      <li>CraftingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_GatherClay</defName>
+    <label>gather clay</label>
+    <description>Dig clay from the ground.</description>
+    <jobString>Gathering clay.</jobString>
+    <workAmount>600</workAmount>
+    <products>
+      <RimRoof_Clay>1</RimRoof_Clay>
+    </products>
+    <workSpeedStat>MiningSpeed</workSpeedStat>
+    <effectWorking>Mine</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_ClayMiningSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>RimRoof_GatherSand</defName>
+    <label>gather sand</label>
+    <description>Collect sand from the ground.</description>
+    <jobString>Gathering sand.</jobString>
+    <workAmount>400</workAmount>
+    <products>
+      <RimRoof_Sand>1</RimRoof_Sand>
+    </products>
+    <workSpeedStat>MiningSpeed</workSpeedStat>
+    <effectWorking>Mine</effectWorking>
+    <recipeUsers>
+      <li>RimRoof_ClayMiningSpot</li>
+    </recipeUsers>
   </RecipeDef>
 
 </Defs>

@@ -7,6 +7,6 @@ namespace RimRoof
     public static class Startup
     {
         public static readonly Texture2D IconLogFrame = ContentFinder<Texture2D>.Get("Log_Frame");
-        public static readonly Texture2D IconInnerRoof = ContentFinder<Texture2D>.Get("Haygrass_Roof");
+        public static readonly Texture2D IconInnerRoof = ContentFinder<Texture2D>.Get("Roofs/Haygrass_Roof");
     }
 }

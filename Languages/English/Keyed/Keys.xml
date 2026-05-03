@@ -3,4 +3,6 @@
   <RimRoof_ToggleLog>Toggle log frames visibility</RimRoof_ToggleLog>
   <RimRoof_ToggleRoof>Toggle inner roofs visibility</RimRoof_ToggleRoof>
   <RimRoof_NeedLogFrame>Requires a log frame for support</RimRoof_NeedLogFrame>
+  <RimRoof_CannotDeconstructUnderRoofBlueprint>Cannot deconstruct while a roof blueprint is placed here</RimRoof_CannotDeconstructUnderRoofBlueprint>
+  <RimRoof_CannotDeconstructUnderRoofFrame>Cannot deconstruct while a roof frame is being built here</RimRoof_CannotDeconstructUnderRoofFrame>
 </LanguageData>

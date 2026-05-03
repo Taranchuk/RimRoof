@@ -4,9 +4,11 @@ namespace RimRoof
 {
     public class Building_LogFrame : Building
     {
+        public bool ShouldBeVisible => RimRoofMod.settings.showLogFrames;
+
         public override void Print(SectionLayer layer)
         {
-            if (RimRoofMod.settings.showLogFrames) base.Print(layer);
+            if (ShouldBeVisible) base.Print(layer);
         }
     }
 }

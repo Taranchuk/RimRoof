@@ -12,8 +12,137 @@
     <soundInteract>Metal_Drop</soundInteract>
     <statBases>
       <MaxHitPoints>60</MaxHitPoints>
-      <MarketValue>10</MarketValue>
+      <MarketValue>4</MarketValue>
       <Mass>0.5</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_Twine</defName>
+    <label>twine</label>
+    <description>Braided haygrass fibers used for binding log frames.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Twine</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>30</MaxHitPoints>
+      <MarketValue>0.5</MarketValue>
+      <Mass>0.1</Mass>
+      <Flammability>1.5</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_Nails</defName>
+    <label>nails</label>
+    <description>Iron nails used in timber and stone roof construction.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Nails</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>10</MaxHitPoints>
+      <MarketValue>2</MarketValue>
+      <Mass>0.05</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_Timber</defName>
+    <label>timber</label>
+    <description>Sawn wood planks for sturdy roofing.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Timber</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <MarketValue>1.2</MarketValue>
+      <Mass>1</Mass>
+      <Flammability>1</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_Clay</defName>
+    <label>clay</label>
+    <description>Raw clay used to make mortar.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Clay</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>5</MaxHitPoints>
+      <MarketValue>0.5</MarketValue>
+      <Mass>0.8</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_Sand</defName>
+    <label>sand</label>
+    <description>Raw sand used for mortar.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Sand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>3</MaxHitPoints>
+      <MarketValue>0.5</MarketValue>
+      <Mass>0.5</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_Lime</defName>
+    <label>lime</label>
+    <description>Calcined limestone used to make strong mortar.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/Lime</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>All</tradeability>
+    <statBases>
+      <MaxHitPoints>6</MaxHitPoints>
+      <MarketValue>5</MarketValue>
+      <Mass>0.3</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_ClayMortar</defName>
+    <label>clay mortar</label>
+    <description>Mixture of clay, sand, and haygrass used for stone construction.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/ClayMortar</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>5</MaxHitPoints>
+      <MarketValue>1</MarketValue>
+      <Mass>0.6</Mass>
+      <Flammability>0</Flammability>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>RimRoof_LimestoneMortar</defName>
+    <label>limestone mortar</label>
+    <description>Strong mortar made from lime and sand. Creates impenetrable stone roofs.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/LimestoneMortar</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>6</MaxHitPoints>
+      <MarketValue>10</MarketValue>
+      <Mass>0.6</Mass>
       <Flammability>0</Flammability>
     </statBases>
   </ThingDef>

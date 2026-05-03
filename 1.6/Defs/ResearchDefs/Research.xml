@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>RimRoof_LogFrame</defName>
+    <label>log frame</label>
+    <description>Unlocks construction of log frames and twine braiding spots.</description>
+    <baseCost>150</baseCost>
+    <techLevel>Neolithic</techLevel>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>RimRoof_TimberRoof</defName>
+    <label>timber roof</label>
+    <description>Unlocks timber roof construction, trestles, and timber crafting.</description>
+    <baseCost>250</baseCost>
+    <techLevel>Medieval</techLevel>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>RimRoof_CastleRoofEngineering</defName>
+    <label>castle roof engineering</label>
+    <description>Unlocks advanced castle stone block roofs with clay and limestone mortar.</description>
+    <baseCost>1050</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+      <li>Stonecutting</li>
+    </prerequisites>
+  </ResearchProjectDef>
+</Defs>

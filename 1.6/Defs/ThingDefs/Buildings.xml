@@ -13,8 +13,153 @@
       <isEdifice>false</isEdifice>
       <canPlaceOverWall>true</canPlaceOverWall>
     </building>
+    <clearBuildingArea>false</clearBuildingArea>
     <designationCategory>RimRoofs</designationCategory>
     <tickerType>Rare</tickerType>
+  </ThingDef>
+
+  <ProcessorFramework.ProcessDef>
+    <defName>RimRoof_MakeLimeProcess</defName>
+    <thingDef>RimRoof_Lime</thingDef>
+    <ingredientFilter>
+      <thingDefs>
+        <li>ChunkLimestone</li>
+      </thingDefs>
+    </ingredientFilter>
+    <processDays>1</processDays>
+    <capacityFactor>1</capacityFactor>
+    <efficiency>0.2</efficiency>
+    <usesTemperature>false</usesTemperature>
+  </ProcessorFramework.ProcessDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>RimRoof_BraidingSpot</defName>
+    <label>twine braiding spot</label>
+    <description>A simple work area for braiding twine from haygrass.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>BraidingSpot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>200</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>3</WoodLog>
+    </costList>
+    <building>
+      <isEdifice>false</isEdifice>
+    </building>
+    <designationCategory>RimRoofs</designationCategory>
+    <researchPrerequisites>
+      <li>RimRoof_LogFrame</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>RimRoof_Trestle</defName>
+    <label>trestle</label>
+    <description>A sturdy wooden frame used to craft timber planks.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Trestle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>800</WorkToBuild>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Flammability>1</Flammability>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <WoodLog>40</WoodLog>
+    </costList>
+    <building>
+      <isEdifice>false</isEdifice>
+    </building>
+    <designationCategory>RimRoofs</designationCategory>
+    <researchPrerequisites>
+      <li>RimRoof_TimberRoof</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>RimRoof_ClayMiningSpot</defName>
+    <label>clay mining spot</label>
+    <description>Designates an area to gather clay and sand.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>ClayMiningSpot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>100</WorkToBuild>
+      <MaxHitPoints>80</MaxHitPoints>
+    </statBases>
+    <costList>
+      <WoodLog>2</WoodLog>
+    </costList>
+    <building>
+      <isEdifice>false</isEdifice>
+    </building>
+    <designationCategory>RimRoofs</designationCategory>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>RimRoof_Kiln</defName>
+    <label>kiln</label>
+    <description>Used to heat limestone chunks into lime for mortar.</description>
+    <thingClass>ProcessorFramework.Building_ColorCoded</thingClass>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Kiln</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>1200</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <MarketValue>67</MarketValue>
+    </statBases>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+    <building>
+      <isEdifice>false</isEdifice>
+    </building>
+    <designationCategory>RimRoofs</designationCategory>
+    <researchPrerequisites>
+      <li>RimRoof_CastleRoofEngineering</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="ProcessorFramework.CompProperties_Processor">
+        <capacity>5</capacity>
+        <independentProcesses>false</independentProcesses>
+        <parallelProcesses>false</parallelProcesses>
+        <dropIngredients>true</dropIngredients>
+        <showProductIcon>true</showProductIcon>
+        <processes>
+          <li>RimRoof_MakeLimeProcess</li>
+        </processes>
+      </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>1</fuelConsumptionRate>
+        <fuelCapacity>25</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>WoodLog</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+    </comps>
+    <tickerType>Normal</tickerType>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -36,6 +181,7 @@
     </statBases>
     <costList>
       <WoodLog>1</WoodLog>
+      <RimRoof_Twine>1</RimRoof_Twine>
     </costList>
     <constructEffect>ConstructWood</constructEffect>
     <repairEffect>ConstructWood</repairEffect>
@@ -43,18 +189,22 @@
       <isEdifice>false</isEdifice>
       <canPlaceOverWall>true</canPlaceOverWall>
     </building>
+    <clearBuildingArea>false</clearBuildingArea>
     <designationCategory>RimRoofs</designationCategory>
+    <researchPrerequisites>
+      <li>RimRoof_LogFrame</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="RimRoof_Base">
     <defName>RimRoof_HaygrassRoof</defName>
     <label>haygrass roof</label>
     <description>Fast to build but fragile and flammable.</description>
-    <uiIconPath>Haygrass_Roof</uiIconPath>
+    <uiIconPath>Roofs/Haygrass_Roof</uiIconPath>
     <statBases>
-      <WorkToBuild>300</WorkToBuild>
+      <WorkToBuild>500</WorkToBuild>
       <MaxHitPoints>80</MaxHitPoints>
-      <Flammability>2</Flammability>
+      <Flammability>1.5</Flammability>
     </statBases>
     <costList>
       <Hay>3</Hay>
@@ -62,70 +212,137 @@
     <constructEffect>ConstructWood</constructEffect>
     <repairEffect>ConstructWood</repairEffect>
     <graphicData>
-      <texPath>Haygrass_Roof</texPath>
+      <texPath>Roofs/Haygrass_Roof</texPath>
       <graphicClass>RimRoof.Graphic_Roof</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
     <comps>
       <li Class="RimRoof.CompProperties_RoofCollapse">
-        <totalCollapseChancePerDay>0.05</totalCollapseChancePerDay>
-        <singleCollapseChancePerDay>0.1</singleCollapseChancePerDay>
+        <totalCollapseChancePerDay>0.02</totalCollapseChancePerDay>
+        <singleCollapseChancePerDay>0.04</singleCollapseChancePerDay>
       </li>
     </comps>
   </ThingDef>
 
   <ThingDef ParentName="RimRoof_Base">
-    <defName>RimRoof_WoodRoof</defName>
-    <label>wood roof</label>
-    <description>Sturdy wooden roof. More durable than haygrass but still flammable.</description>
-    <uiIconPath>Wood_Roof</uiIconPath>
+    <defName>RimRoof_TimberRoof</defName>
+    <label>timber roof</label>
+    <description>Sturdy timber roof. Requires log frame support to prevent collapse.</description>
+    <uiIconPath>Roofs/Timber_Roof</uiIconPath>
     <statBases>
-      <WorkToBuild>480</WorkToBuild>
+      <WorkToBuild>1000</WorkToBuild>
       <MaxHitPoints>150</MaxHitPoints>
-      <Flammability>1</Flammability>
+      <Flammability>0.8</Flammability>
     </statBases>
     <costList>
-      <WoodLog>3</WoodLog>
+      <RimRoof_Timber>5</RimRoof_Timber>
+      <RimRoof_Nails>3</RimRoof_Nails>
     </costList>
     <constructEffect>ConstructWood</constructEffect>
     <repairEffect>ConstructWood</repairEffect>
     <graphicData>
-      <texPath>Wood_Roof</texPath>
+      <texPath>Roofs/Timber_Roof</texPath>
       <graphicClass>RimRoof.Graphic_Roof</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
     <comps>
       <li Class="RimRoof.CompProperties_RoofCollapse">
-        <totalCollapseChancePerDay>0.1</totalCollapseChancePerDay>
-        <singleCollapseChancePerDay>0.15</singleCollapseChancePerDay>
+        <totalCollapseChancePerDay>0.02</totalCollapseChancePerDay>
+        <singleCollapseChancePerDay>0.04</singleCollapseChancePerDay>
       </li>
     </comps>
+    <researchPrerequisites>
+      <li>RimRoof_TimberRoof</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="RimRoof_Base">
     <defName>RimRoof_StoneRoof</defName>
     <label>stone roof</label>
     <description>Durable stone roof. Requires log frame support to prevent collapse.</description>
-    <uiIconPath>Stone_Roof</uiIconPath>
+    <uiIconPath>Roofs/Stone_Roof</uiIconPath>
     <tickerType>Never</tickerType>
     <statBases>
-      <WorkToBuild>600</WorkToBuild>
+      <WorkToBuild>1500</WorkToBuild>
       <MaxHitPoints>250</MaxHitPoints>
       <Flammability>0</Flammability>
     </statBases>
     <costList>
       <RimRoof_StoneRoofTile>3</RimRoof_StoneRoofTile>
+      <RimRoof_Nails>3</RimRoof_Nails>
     </costList>
     <constructEffect>ConstructDirt</constructEffect>
     <repairEffect>ConstructDirt</repairEffect>
     <graphicData>
-      <texPath>Stone_Roof</texPath>
+      <texPath>Roofs/Stone_Roof</texPath>
       <graphicClass>RimRoof.Graphic_Roof</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
     <placeWorkers>
       <li>RimRoof.PlaceWorker_RequiresLogFrame</li>
     </placeWorkers>
+    <researchPrerequisites>
+      <li>Stonecutting</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="RimRoof_Base">
+    <defName>RimRoof_CastleStoneBlockClayRoof</defName>
+    <label>castle stone block roof (clay mortar)</label>
+    <description>Durable stone block roof using clay mortar. Does not require log frame support.</description>
+    <uiIconPath>Roofs/CastleStone_Clay_Roof</uiIconPath>
+    <tickerType>Never</tickerType>
+    <costStuffCount>10</costStuffCount>
+    <stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+    <statBases>
+      <WorkToBuild>1500</WorkToBuild>
+      <MaxHitPoints>400</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>1.5</Beauty>
+    </statBases>
+    <costList>
+      <RimRoof_ClayMortar>3</RimRoof_ClayMortar>
+    </costList>
+    <graphicData>
+      <texPath>Roofs/CastleStone_Clay_Roof</texPath>
+      <graphicClass>RimRoof.Graphic_Roof</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <researchPrerequisites>
+      <li>RimRoof_CastleRoofEngineering</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="RimRoof_Base">
+    <defName>RimRoof_CastleStoneBlockLimestoneRoof</defName>
+    <label>castle stone block roof (limestone mortar)</label>
+    <description>Impenetrable stone block roof using limestone mortar. Stops drop pods and attacks from above.</description>
+    <uiIconPath>Roofs/CastleStone_Lime_Roof</uiIconPath>
+    <tickerType>Never</tickerType>
+    <costStuffCount>10</costStuffCount>
+    <stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+    <statBases>
+      <WorkToBuild>1500</WorkToBuild>
+      <MaxHitPoints>600</MaxHitPoints>
+      <Flammability>0</Flammability>
+      <Beauty>1.5</Beauty>
+    </statBases>
+    <costList>
+      <RimRoof_LimestoneMortar>1</RimRoof_LimestoneMortar>
+    </costList>
+    <graphicData>
+      <texPath>Roofs/CastleStone_Lime_Roof</texPath>
+      <graphicClass>RimRoof.Graphic_Roof</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <thingClass>RimRoof.Building_CastleLimestoneRoof</thingClass>
+    <researchPrerequisites>
+      <li>RimRoof_CastleRoofEngineering</li>
+    </researchPrerequisites>
   </ThingDef>
 
 </Defs>

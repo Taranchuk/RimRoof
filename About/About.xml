@@ -16,4 +16,17 @@
         <li>Ludeon.RimWorld.Odyssey</li>
         <li>brrainz.harmony</li>
     </loadAfter>
+    <modDependencies>
+        <li>
+            <packageId>brrainz.harmony</packageId>
+            <displayName>Harmony</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+            <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+        </li>
+        <li>
+            <packageId>syrchalis.processor.framework</packageId>
+            <displayName>[SYR] Processor Framework</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2633580237</steamWorkshopUrl>
+        </li>
+    </modDependencies>
 </ModMetaData>

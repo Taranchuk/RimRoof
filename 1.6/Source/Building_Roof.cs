@@ -43,12 +43,17 @@ namespace RimRoof
         public void UpdateShape()
         {
             bool n = IsS(IntVec3.North), e = IsS(IntVec3.East), s = IsS(IntVec3.South), w = IsS(IntVec3.West);
+            bool ne = IsS(new IntVec3(1, 0, 1));
+            bool se = IsS(new IntVec3(1, 0, -1));
+            bool sw = IsS(new IntVec3(-1, 0, -1));
+            bool nw = IsS(new IntVec3(-1, 0, 1));
+
             if (n && e && s && w)
             {
-                if (!IsS(new IntVec3(1, 0, 1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.North; }
-                else if (!IsS(new IntVec3(1, 0, -1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.East; }
-                else if (!IsS(new IntVec3(-1, 0, -1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.South; }
-                else if (!IsS(new IntVec3(-1, 0, 1))) { curShape = RoofShape.InnerCorner; Rotation = Rot4.West; }
+                if (!ne) { curShape = RoofShape.InnerCorner; Rotation = Rot4.North; }
+                else if (!se) { curShape = RoofShape.InnerCorner; Rotation = Rot4.East; }
+                else if (!sw) { curShape = RoofShape.InnerCorner; Rotation = Rot4.South; }
+                else if (!nw) { curShape = RoofShape.InnerCorner; Rotation = Rot4.West; }
                 else curShape = RoofShape.Center;
             }
             else
@@ -100,7 +105,7 @@ namespace RimRoof
 
                 yield return new Command_Action
                 {
-                    defaultLabel = "Set Rotation: " + Rotation,
+                    defaultLabel = "Set Rotation: " + Rotation.ToStringHuman(),
                     action = () =>
                     {
                         Rotation = new Rot4((Rotation.AsInt + 1) % 4);
