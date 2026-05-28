@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+    <defName>RimRoof_DoBill_BraidingSpot</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <priorityInType>90</priorityInType>
+    <fixedBillGiverDefs>
+      <li>RimRoof_BraidingSpot</li>
+    </fixedBillGiverDefs>
+    <verb>braid at</verb>
+    <gerund>braiding at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RimRoof_DoBill_Trestle</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Construction</workType>
+    <priorityInType>90</priorityInType>
+    <fixedBillGiverDefs>
+      <li>RimRoof_Trestle</li>
+    </fixedBillGiverDefs>
+    <verb>saw at</verb>
+    <gerund>sawing at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RimRoof_DoBill_ClayMiningSpot</defName>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Mining</workType>
+    <priorityInType>90</priorityInType>
+    <fixedBillGiverDefs>
+      <li>RimRoof_ClayMiningSpot</li>
+    </fixedBillGiverDefs>
+    <verb>gather at</verb>
+    <gerund>gathering at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>
