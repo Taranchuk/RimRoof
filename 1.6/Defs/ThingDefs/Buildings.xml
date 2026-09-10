@@ -50,8 +50,15 @@
     <costList>
       <WoodLog>3</WoodLog>
     </costList>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
     <building>
       <isEdifice>false</isEdifice>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
     </building>
     <designationCategory>RimRoofs</designationCategory>
     <researchPrerequisites>
@@ -78,8 +85,15 @@
       <Steel>10</Steel>
       <WoodLog>40</WoodLog>
     </costList>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
     <building>
       <isEdifice>false</isEdifice>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
     </building>
     <designationCategory>RimRoofs</designationCategory>
     <researchPrerequisites>
@@ -104,8 +118,15 @@
     <costList>
       <WoodLog>2</WoodLog>
     </costList>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
     <building>
       <isEdifice>false</isEdifice>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
     </building>
     <designationCategory>RimRoofs</designationCategory>
   </ThingDef>
