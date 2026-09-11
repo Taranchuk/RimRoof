@@ -281,7 +281,7 @@
     <defName>RimRoof_StoneRoof</defName>
     <label>stone roof</label>
     <description>Durable stone roof. Requires log frame support to prevent collapse.</description>
-    <uiIconPath>Roofs/Stone_Roof</uiIconPath>
+    <uiIconPath>Roofs/StoneTile_Roof</uiIconPath>
     <tickerType>Never</tickerType>
     <statBases>
       <WorkToBuild>1500</WorkToBuild>
@@ -295,7 +295,7 @@
     <constructEffect>ConstructDirt</constructEffect>
     <repairEffect>ConstructDirt</repairEffect>
     <graphicData>
-      <texPath>Roofs/Stone_Roof</texPath>
+      <texPath>Roofs/StoneTile_Roof</texPath>
       <graphicClass>RimRoof.Graphic_Roof</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
@@ -311,7 +311,7 @@
     <defName>RimRoof_CastleStoneBlockClayRoof</defName>
     <label>castle stone block roof (clay mortar)</label>
     <description>Durable stone block roof using clay mortar. Does not require log frame support.</description>
-    <uiIconPath>Roofs/CastleStone_Clay_Roof</uiIconPath>
+    <uiIconPath>Roofs/CastleStoneRoof_Roof</uiIconPath>
     <tickerType>Never</tickerType>
     <costStuffCount>10</costStuffCount>
     <stuffCategories>
@@ -327,7 +327,7 @@
       <RimRoof_ClayMortar>3</RimRoof_ClayMortar>
     </costList>
     <graphicData>
-      <texPath>Roofs/CastleStone_Clay_Roof</texPath>
+      <texPath>Roofs/CastleStoneRoof_Roof</texPath>
       <graphicClass>RimRoof.Graphic_Roof</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
@@ -340,7 +340,7 @@
     <defName>RimRoof_CastleStoneBlockLimestoneRoof</defName>
     <label>castle stone block roof (limestone mortar)</label>
     <description>Impenetrable stone block roof using limestone mortar. Stops drop pods and attacks from above.</description>
-    <uiIconPath>Roofs/CastleStone_Lime_Roof</uiIconPath>
+    <uiIconPath>Roofs/CastleStoneRoof_Roof</uiIconPath>
     <tickerType>Never</tickerType>
     <costStuffCount>10</costStuffCount>
     <stuffCategories>
@@ -356,7 +356,7 @@
       <RimRoof_LimestoneMortar>1</RimRoof_LimestoneMortar>
     </costList>
     <graphicData>
-      <texPath>Roofs/CastleStone_Lime_Roof</texPath>
+      <texPath>Roofs/CastleStoneRoof_Roof</texPath>
       <graphicClass>RimRoof.Graphic_Roof</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
