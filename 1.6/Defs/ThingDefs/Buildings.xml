@@ -192,6 +192,7 @@
       <texPath>Log_Frame</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
+      <drawOffset>(0,0,0.2)</drawOffset>
     </graphicData>
     <uiIconPath>Log_Frame</uiIconPath>
     <drawStyleCategory>FilledRectangle</drawStyleCategory>
