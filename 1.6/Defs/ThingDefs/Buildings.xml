@@ -38,7 +38,7 @@
     <description>A simple work area for braiding twine from haygrass.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>BraidingSpot</texPath>
+      <texPath>Things/Building/Production/BraidingSpot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
@@ -72,7 +72,7 @@
     <description>A sturdy wooden frame used to craft timber planks.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Trestle</texPath>
+      <texPath>Things/Building/Production/Trestle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
     </graphicData>
@@ -107,7 +107,7 @@
     <description>Designates an area to gather clay and sand.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>ClayMiningSpot</texPath>
+      <texPath>Things/Building/Production/ClayMiningSpot</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
@@ -138,7 +138,7 @@
     <thingClass>ProcessorFramework.Building_ColorCoded</thingClass>
     <drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
-      <texPath>Kiln</texPath>
+      <texPath>Things/Building/Production/Kiln</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(2,2)</drawSize>
     </graphicData>
@@ -189,12 +189,12 @@
     <description>Provides structural support for roofs. Required for stone roofs to prevent collapse.</description>
     <thingClass>RimRoof.Building_LogFrame</thingClass>
     <graphicData>
-      <texPath>Log_Frame</texPath>
+      <texPath>Things/Building/Misc/Log_Frame</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(1,1)</drawSize>
       <drawOffset>(0,0,0.2)</drawOffset>
     </graphicData>
-    <uiIconPath>Log_Frame</uiIconPath>
+    <uiIconPath>Things/Building/Misc/Log_Frame</uiIconPath>
     <drawStyleCategory>FilledRectangle</drawStyleCategory>
     <altitudeLayer>MoteOverheadLow</altitudeLayer>
     <statBases>
