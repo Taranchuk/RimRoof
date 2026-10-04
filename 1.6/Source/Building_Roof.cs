@@ -43,18 +43,10 @@ namespace RimRoof
         public void UpdateShape()
         {
             bool n = IsS(IntVec3.North), e = IsS(IntVec3.East), s = IsS(IntVec3.South), w = IsS(IntVec3.West);
-            bool ne = IsS(new IntVec3(1, 0, 1));
-            bool se = IsS(new IntVec3(1, 0, -1));
-            bool sw = IsS(new IntVec3(-1, 0, -1));
-            bool nw = IsS(new IntVec3(-1, 0, 1));
-
             if (n && e && s && w)
             {
-                if (!ne) { curShape = RoofShape.InnerCorner; Rotation = Rot4.North; }
-                else if (!se) { curShape = RoofShape.InnerCorner; Rotation = Rot4.East; }
-                else if (!sw) { curShape = RoofShape.InnerCorner; Rotation = Rot4.South; }
-                else if (!nw) { curShape = RoofShape.InnerCorner; Rotation = Rot4.West; }
-                else curShape = RoofShape.Center;
+                curShape = RoofShape.Center;
+                Rotation = Rot4.North;
             }
             else
             {
@@ -66,7 +58,7 @@ namespace RimRoof
                 else if (!e) { curShape = RoofShape.Side; Rotation = Rot4.East; }
                 else if (!s) { curShape = RoofShape.Side; Rotation = Rot4.South; }
                 else if (!w) { curShape = RoofShape.Side; Rotation = Rot4.West; }
-                else curShape = RoofShape.Center;
+                else { curShape = RoofShape.Center; Rotation = Rot4.North; }
             }
             Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
         }
